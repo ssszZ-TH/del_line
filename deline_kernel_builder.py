@@ -21,8 +21,8 @@ if __name__ == "__main__":
     # filt_ang1 = 30
     # filt_ang2 = 150
     # Filter parameters
-    filt_rad1 = 50
-    filt_rad2 = 150
+    filt_rad1 = 30
+    filt_rad2 = 200
 
     filt_ang1 = 30
     filt_ang2 = 150
@@ -45,12 +45,15 @@ if __name__ == "__main__":
     filt_flip = cv.flip(filt_flip,1)
     
     filtmain = filt+filt_flip
+    filtmain_rot = cv.rotate(filtmain, cv.ROTATE_90_CLOCKWISE)
     
-    cv.imwrite("kernel.png", filtmain)
+    cv.imwrite("kernel_del_y_line.png", filtmain)
+    cv.imwrite("kernel_del_x_line.png",filtmain_rot)
     
     cv.imshow("filt_step1",filt)
     cv.imshow("filt_step2",filt_flip)
     cv.imshow("filt_step3",filtmain)
+    cv.imshow("filt_step4",filtmain_rot)
     
     cv.waitKey(0)
     cv.destroyAllWindows()

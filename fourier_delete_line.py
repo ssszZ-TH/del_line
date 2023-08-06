@@ -6,7 +6,7 @@ import fr_ssszz as fr
 if __name__ == "__main__":
     ## ตัวอย่างการใข้งาน ssszz lib ให้เต็มประสิทธิภาพ
     img=cv.imread("./input.png",cv.IMREAD_GRAYSCALE)
-    deline = cv.imread("./kernel.png",cv.IMREAD_GRAYSCALE)
+    deline = cv.imread("./kernel_del_x_line.png",cv.IMREAD_GRAYSCALE)
 
     # dsize
     dsize = (img.shape[1],img.shape[0])
