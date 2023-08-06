@@ -21,11 +21,11 @@ if __name__ == "__main__":
     # filt_ang1 = 30
     # filt_ang2 = 150
     # Filter parameters
-    filt_rad1 = 30
+    filt_rad1 = 50
     filt_rad2 = 150
 
-    filt_ang1 = 45
-    filt_ang2 = 135
+    filt_ang1 = 30
+    filt_ang2 = 150
 
     filt = np.zeros([img_h,img_w,1], dtype=np.uint8)
     filt1 = np.where(map_dst>=filt_rad1, 255, 0)

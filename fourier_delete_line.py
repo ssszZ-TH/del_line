@@ -8,21 +8,24 @@ if __name__ == "__main__":
     img=cv.imread("./input.png",cv.IMREAD_GRAYSCALE)
     deline = cv.imread("./kernel.png",cv.IMREAD_GRAYSCALE)
 
-    deline_freq=fr.filterToFrequency(deline,s=img.shape)
-    
-    #รูปต้องทำเป็น mag ก่อนถึงจะพร้อมเอาไป x
-    deline_mag=fr.filterfrequencyToMagnitude(deline_freq)
+    # dsize
+    dsize = (img.shape[1],img.shape[0])
+
+    # resize image
+    deline_filt = cv.resize(deline, dsize, interpolation=cv.INTER_AREA)
+    deline_filt = np.uint8(deline_filt)
     
     imgfreq=fr.imgToFrequency(img)
     mag_img=fr.imgfrequencyToMagnitude(imgfreq)
     
-    filtered_img = imgfreq*deline
+    deline_filt//=50
+    filtered_img = imgfreq*deline_filt
+
     
     filtered_img = fr.invertFourierTransform(filtered_img)
 
     
     cv.imshow("magnitude_img",mag_img)
-    cv.imshow("delineFilter_mag",deline_mag)
     cv.imshow("output",filtered_img)
     cv.imshow("original",img)
     cv.waitKey(0)
