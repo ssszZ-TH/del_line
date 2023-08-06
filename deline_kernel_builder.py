@@ -46,7 +46,7 @@ if __name__ == "__main__":
     
     filtmain = filt+filt_flip
     
-    cv.imwrite("output_filter.png", filtmain)
+    cv.imwrite("kernel.png", filtmain)
     
     cv.imshow("filt_step1",filt)
     cv.imshow("filt_step2",filt_flip)
