@@ -24,8 +24,8 @@ if __name__ == "__main__":
     filt_rad1 = 30
     filt_rad2 = 200
 
-    filt_ang1 = 30
-    filt_ang2 = 150
+    filt_ang1 = 50
+    filt_ang2 = 130
 
     filt = np.zeros([img_h,img_w,1], dtype=np.uint8)
     filt1 = np.where(map_dst>=filt_rad1, 255, 0)

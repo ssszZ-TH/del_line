@@ -2,8 +2,6 @@ import cv2
  
 src = cv2.imread('./kernel.png', cv2.IMREAD_UNCHANGED)
 
-
-
 # dsize
 dsize = (1920,1080)
 
