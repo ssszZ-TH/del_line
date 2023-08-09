@@ -18,15 +18,19 @@ if __name__ == "__main__":
     imgfreq=fr.imgToFrequency(img)
     mag_img=fr.imgfrequencyToMagnitude(imgfreq)
     
-    deline_filt//=50
+    deline_filt//=200
     filtered_img = imgfreq*deline_filt
 
     
     filtered_img = fr.invertFourierTransform(filtered_img)
+    filtered_img_norm = cv.normalize(filtered_img, None, 0, 255, cv.NORM_MINMAX, cv.CV_8U)
 
+
+    cv.imwrite("output.png",filtered_img_norm)
     
     cv.imshow("magnitude_img",mag_img)
     cv.imshow("output",filtered_img)
+    cv.imshow("output_normalize",filtered_img_norm)
     cv.imshow("original",img)
     cv.waitKey(0)
     cv.destroyAllWindows()
